@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart E-Waste Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f7f7;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Header */
+        .header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Sections */
+        .section {
+            padding: 50px;
+            background: white;
+            margin: 20px auto;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 20px;
+            font-size: 16px;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #555;
+        }
+
+        /* Form */
+        .schedule form {
+            max-width: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .schedule form input, .schedule form button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .schedule form button {
+            background: #444;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .schedule form button:hover {
+            background: #666;
+        }
+
+        /* Bin Status */
+        .bin-status {
+            background: #eee;
+            padding: 15px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 15px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        Smart E-Waste Collection
+    </div>
+
+    <!-- User Pickup Section -->
+    <div class="section">
+        <h2>Request E-Waste Pickup</h2>
+        <p>Schedule a pickup for your e-waste at your convenience.</p>
+        <div class="schedule">
+            <form id="userPickupForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="text" id="address" placeholder="Pickup Address" required>
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+                <button type="submit">Schedule Pickup</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Smart Bin Monitoring -->
+    <div class="section">
+        <h2>Smart Bin Monitoring</h2>
+        <p>Automatic scheduling when the bin reaches full capacity.</p>
+        <div class="bin-status">
+            <p><strong>Current Bin Fill Level:</strong> <span id="bin-level">50%</span></p>
+            <button class="btn" onclick="requestBinPickup()">Request Pickup</button>
+        </div>
+    </div>
+
+    <script>
+        // User Pickup Form
+        document.getElementById('userPickupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("Pickup request received! We will contact you soon.");
+            document.getElementById('userPickupForm').reset();
+        });
+
+        // Simulate Bin Fill Level Update
+        function updateBinStatus() {
+            let binLevel = Math.floor(Math.random() * 100) + 1; // Random value 1-100
+            document.getElementById("bin-level").innerText = binLevel + "%";
+
+            // Auto-trigger collection if bin is full
+            if (binLevel >= 80) {
+                alert("The e-waste bin is full. Scheduling a pickup.");
+            }
+        }
+
+        setInterval(updateBinStatus, 5000); // Update every 5 seconds
+
+        function requestBinPickup() {
+            alert("Pickup request for the full bin has been submitted!");
+        }
+    </script>
+
+</body>
+</html>

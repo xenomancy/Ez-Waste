@@ -1,0 +1,388 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 50px;
+    background: linear-gradient(90deg, #002b36, #004b4e); /* Sleek Gradient Background */
+    color: white;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo Styling */
+header .logo {
+    font-size: 2em;
+    font-weight: 700;
+    color: #76c893; /* Modern Green Accent */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+header .logo:hover {
+    color: #cfd8dc; /* Subtle Logo Hover Effect */
+}
+
+/* Navigation Menu */
+nav {
+    margin-right: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Larger Gap for Modern Look */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #cfd8dc; /* Light Grayish Text */
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 8px 12px; /* Add Padding for Button-Like Style */
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2); /* Subtle Transparent Background on Hover */
+    color: #76c893; /* Soft Green Accent on Hover */
+    transform: translateY(-2px); /* Hover Lift Effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px; /* Adjust Gap for Smaller Screens */
+        margin-top: 15px;
+    }
+}
+
+/* Title */
+/* Title */
+h1 {
+    font-size: 42px;
+    margin: 40px 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #fff;
+    background: linear-gradient(90deg, #ff9f43, #ffb74d, #ffffff, #ffb74d, #ff9f43);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+    cursor: pointer;
+    animation: gradientShift 3s infinite linear;
+    display: inline-block;
+    position: relative;
+    font-family: "Garamond", "Baskerville", "Palatino Linotype", serif; /* Elegant Font */
+    font-weight: bold;
+}
+
+/* Shine Effect - Word by Word */
+h1 span {
+    display: inline-block;
+    position: relative;
+    animation: shineEffect 2s infinite alternate ease-in-out;
+}
+
+/* Delayed shine effect for each word */
+h1 span:nth-child(1) { animation-delay: 0s; }
+h1 span:nth-child(2) { animation-delay: 0.2s; }
+h1 span:nth-child(3) { animation-delay: 0.4s; }
+h1 span:nth-child(4) { animation-delay: 0.6s; }
+h1 span:nth-child(5) { animation-delay: 0.8s; }
+
+/* Shine Animation */
+@keyframes shineEffect {
+    0% { text-shadow: 0 0 10px rgba(255, 165, 0, 0.3); }
+    100% { text-shadow: 0 0 30px rgba(255, 165, 0, 0.8); }
+}
+
+/* Smooth Gradient Animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Hover Effect */
+h1:hover {
+    transform: scale(1.08);
+    text-shadow: 4px 4px 12px rgba(255, 165, 0, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+}
+
+
+/* Steps Section */
+.how-it-works {
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Step Box */
+.step {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    gap: 20px; /* Space between image and text */
+    transition: transform 0.5s ease-in-out, background 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    cursor: pointer;
+}
+
+/* Circular Image (Bigger Size) */
+.step img {
+    width: 80px; /* Increased size */
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover Effect on Image */
+.step:hover img {
+    transform: scale(1.1);
+    border-color: rgba(255, 165, 0, 0.8);
+}
+
+/* Shine Effect */
+.step::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent
+    );
+    transition: left 0.6s ease-in-out;
+}
+
+/* Hover Effects */
+.step:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0px 4px 25px rgba(255, 255, 255, 0.4), 0px 0px 12px rgba(243, 156, 18, 0.9);
+    border: 2px solid rgba(243, 156, 18, 0.9);
+}
+
+.step:hover::before {
+    left: 150%;
+}
+
+/* Ripple Effect on Hover */
+.step:hover::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 165, 0, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 300%;
+        height: 300%;
+        opacity: 0;
+    }
+}
+
+/* Content Inside Steps */
+.content {
+    flex: 1; /* Allows text to take up remaining space */
+}
+
+.content h2 {
+    font-size: 22px;
+    color: #f39c12;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Text Glow and Move Effect on Hover */
+.step:hover h2 {
+    color: #e74c3c;
+    text-shadow: 0px 0px 10px rgba(231, 76, 60, 0.8);
+    transform: translateX(5px);
+}
+
+.content p {
+    font-size: 16px;
+    color: #dcdcdc;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Move Up Effect on Hover */
+.step:hover p {
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .step {
+        flex-direction: column; /* Stack image and text on small screens */
+        align-items: center;
+        text-align: center;
+    }
+
+    .step img {
+        width: 70px; /* Slightly smaller for mobile */
+        height: 70px;
+    }
+
+    .content h2 {
+        font-size: 20px;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background: white; /* White Background */
+    color: black; /* Black Text */
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 30px;
+}
+
+/* Container for Quick Links & Location */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc; /* Subtle Divider */
+}
+
+/* Footer Styles */
+.footer {
+    background: white; /* White Background */
+    color: black; /* Black Text */
+    padding: 20px 10px; /* Reduced Padding */
+    font-family: Arial, sans-serif;
+    font-size: 0.9em; /* Smaller Text */
+}
+
+/* Container for Quick Links & Location */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: auto;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc; /* Subtle Divider */
+}
+
+/* Footer Sections */
+.footer-section {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Section Titles */
+.footer-section h3 {
+    font-size: 1.1em; /* Smaller Font */
+    margin-bottom: 5px;
+    color: #1b5e20; /* Dark Green for Style */
+}
+
+/* Quick Links */
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-links ul li {
+    margin: 3px 0;
+}
+
+.quick-links ul li a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-size: 0.9em;
+}
+
+.quick-links ul li a:hover {
+    color: #1b5e20; /* Green Hover Effect */
+}
+
+/* Footer Bottom (Copyright & Design) */
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 0.8em; /* Even Smaller Text */
+    color: black;
+}
+.designer {
+    font-weight: bold;
+    color: #1b5e20;
+}

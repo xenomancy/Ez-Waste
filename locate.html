@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Nearest E-Waste Bin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #map {
+            width: 80%;
+            height: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Find the Nearest E-Waste Bin</h1>
+    <input type="text" id="locationInput" placeholder="Enter your location (e.g., Kolkata)">
+    <button onclick="findBins()">Find Nearest Bins</button>
+    <div id="map"></div>
+
+    <script>
+        let map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 22.5726, lng: 88.3639 }, // Default to Kolkata
+                zoom: 12,
+            });
+        }
+
+        function findBins() {
+            let userLocation = document.getElementById("locationInput").value.trim();
+
+            // Predefined e-waste bin locations (city-based)
+            let locationMap = {
+                "kolkata": { lat: 22.5726, lng: 88.3639 },
+                "delhi": { lat: 28.6139, lng: 77.2090 },
+                "mumbai": { lat: 19.0760, lng: 72.8777 },
+                "bengaluru": { lat: 12.9716, lng: 77.5946 },
+                "chennai": { lat: 13.0827, lng: 80.2707 }
+            };
+
+            let ewasteBins = [
+                { name: "Bin 1", city: "kolkata", lat: 22.5811, lng: 88.3769 },
+                { name: "Bin 2", city: "kolkata", lat: 22.5628, lng: 88.3431 },
+                { name: "Bin 3", city: "delhi", lat: 28.6165, lng: 77.2304 },
+                { name: "Bin 4", city: "mumbai", lat: 19.0725, lng: 72.8671 },
+                { name: "Bin 5", city: "bengaluru", lat: 12.9721, lng: 77.5805 },
+                { name: "Bin 6", city: "chennai", lat: 13.0803, lng: 80.2753 }
+            ];
+
+            if (!locationMap[userLocation.toLowerCase()]) {
+                alert("Location not found. Try a major city.");
+                return;
+            }
+
+            let userLat = locationMap[userLocation.toLowerCase()].lat;
+            let userLng = locationMap[userLocation.toLowerCase()].lng;
+
+            // Filter bins for the city entered by user
+            let filteredBins = ewasteBins.filter(bin => bin.city.toLowerCase() === userLocation.toLowerCase());
+
+            if (filteredBins.length === 0) {
+                alert("No bins found for this location.");
+                return;
+            }
+
+            map.setCenter({ lat: userLat, lng: userLng });
+            map.setZoom(14);
+
+            // Show user location
+            new google.maps.Marker({
+                position: { lat: userLat, lng: userLng },
+                map: map,
+                title: "Your Location",
+                icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+            });
+
+            // Show nearest e-waste bins
+            filteredBins.forEach(bin => {
+                new google.maps.Marker({
+                    position: { lat: bin.lat, lng: bin.lng },
+                    map: map,
+                    title: bin.name,
+                    icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                });
+            });
+        }
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4srqocXe1ZTtW4V8FKUdEHGGWd5lVl3k&callback=initMap">
+    </script>
+
+</body>
+</html>

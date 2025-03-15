@@ -1,0 +1,189 @@
+/* Modern Color Palette */
+:root {
+    --primary: #6C5CE7;
+    --secondary: #A29BFE;
+    --bg: #1E1E2E;
+    --text: #FFFFFF;
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --hover: #4834D4;
+    --box-glow: rgba(108, 92, 231, 0.4);
+    --hover-glow: rgba(108, 92, 231, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Glassmorphism Effect */
+.login-box {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px var(--box-glow);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 50px 30px 40px;
+    text-align: center;
+    width: 350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect on Card */
+.login-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px var(--hover-glow);
+}
+
+/* Logo Styling */
+.logo-container {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 20px var(--box-glow);
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+}
+
+h2 {
+    color: var(--text);
+    font-weight: 600;
+}
+
+p {
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+    position: relative;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: var(--input-bg);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    color: var(--text);
+    font-size: 16px;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input-group label {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    color: var(--secondary);
+    font-size: 14px;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+/* Floating Label Effect */
+.input-group input:focus,
+.input-group input:valid {
+    border-color: var(--secondary);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -10px;
+    left: 12px;
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Submit Button */
+.btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px var(--box-glow);
+}
+
+/* Button Hover Effect */
+.btn:hover {
+    background: var(--hover);
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px var(--hover-glow);
+}
+
+/* Links */
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.links a {
+    color: var(--secondary);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    color: var(--text);
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .login-box {
+        width: 90%;
+        padding: 40px 20px 30px;
+    }
+
+    .logo-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .logo-container img {
+        width: 60%;
+    }
+}

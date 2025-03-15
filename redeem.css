@@ -1,0 +1,240 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: linear-gradient(90deg, #FF4500, #FFA500);
+    color: white;
+}
+
+.logo img {
+    width: 120px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover, .active {
+    color: yellow;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #ff6a88;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    color: white;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.points-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.points-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#points {
+    font-size: 36px;
+    font-weight: bold;
+    color: #FF4500;
+}
+
+.points-label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-top: 5px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-top: 20px;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transform: translateX(5px);
+}
+
+/* Main Content */
+.redeem-container {
+    margin-left: 270px;
+    padding: 40px;
+}
+
+.main-title {
+    font-size: 32px;
+    color: #FF4500;
+    text-align: center;
+    font-weight: bold;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Coupon Sections */
+.coupon-section {
+    margin-top: 40px;
+}
+
+.coupon-section h2 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 3px solid #FF4500;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* Coupon Grid Layout */
+.coupon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Coupon Cards */
+.coupon-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 200px; /* Reduced width for smaller cards */
+    margin: 10px; /* Add spacing between cards */
+}
+
+.coupon-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.coupon-card img {
+    width: 70px; /* Adjusted to fit smaller card width */
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.coupon-card h3 {
+    font-size: 18px; /* Slightly smaller font size for smaller cards */
+    color: #222;
+}
+
+.coupon-card p {
+    font-size: 14px; /* Adjusted font size for compact content */
+    color: #555;
+    margin: 10px 0;
+}
+
+.redeem-btn {
+    background: #FF4500;
+    color: white;
+    border: none;
+    padding: 8px 12px; /* Smaller button size */
+    border-radius: 5px;
+    font-size: 13px; /* Reduced font size */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.redeem-btn:hover {
+    background: #cc3700;
+}
+
+/* Footer */
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+    .redeem-container {
+        margin-left: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        text-align: center;
+    }
+    .redeem-container {
+        margin-left: 0;
+        padding: 20px;
+    }
+    .coupon-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}

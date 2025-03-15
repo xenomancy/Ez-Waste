@@ -1,0 +1,567 @@
+/* styles.css */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px 50px;
+    background: linear-gradient(90deg, #002b36, #004b4e); /* Sleek Gradient Background */
+    color: white;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo Styling */
+header .logo img {
+    height: 60px; /* Adjust size as needed */
+    width: 80px;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+header .logo img:hover {
+    transform: scale(1.1); /* Slight Zoom Effect on Hover */
+}
+
+/* Navigation Menu */
+nav {
+    margin-right: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Spacing Between Menu Items */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #cfd8dc; /* Light Grayish Text */
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #76c893; /* Green Accent on Hover */
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 90vh; /* Bigger Hero Section */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: url('assets/homepage/bghero.jpg') no-repeat right center/cover; /* Positioned to cover right side */
+    background-attachment: fixed; /* Parallax Effect */
+    width: 1650px; /* Ensures it stretches across the full width */
+}
+
+
+/* Enhanced Greenish Gradient Overlay with Darker Middle */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(319deg, 
+        rgba(167, 234, 67, 0.6) 0%,   /* Light Green at the top-left */
+        rgba(2, 40, 10, 0.7) 50%,    /* Darker Green in the middle */
+        rgba(1, 71, 8, 0.637) 100%   /* Deep Green at the bottom-right */
+    );
+    mix-blend-mode: overlay; /* Ensures better blending with the background */
+    z-index: 1;
+}
+
+
+
+
+/* Hero Content */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 10%; /* Moves text towards the left */
+    transform: translateY(-50%);
+    text-align: left; /* Aligns text to the left */
+    z-index: 2;
+    max-width: 50%; /* Restricts width for better readability */
+}
+
+.hero h1 {
+    font-size: 4em;
+    margin-bottom: 30px; /* Increased spacing */
+    font-weight: bold;
+    color: #fff; /* Brighter text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Allerta Stencil;
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-top: 20px; /* More spacing after heading */
+    margin-bottom: 50px;
+    color: #f8f9fa;
+}
+ 
+
+
+/* Learn More Button */
+.learn-more-btn {
+    background-color: #34c4a2; /* Bootstrap Success Green */
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 12px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    overflow: hidden;
+  }
+  
+  /* Shiny Light Effect */
+  .learn-more-btn::before {
+    background-color: initial;
+    background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+    border-radius: 125px;
+    content: "";
+    height: 50%;
+    left: 4%;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    width: 92%;
+  }
+  
+  /* Hover Effect */
+  .learn-more-btn:hover {
+    box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset, 
+                rgba(0, 0, 0, 0.1) 0 3px 5px, 
+                rgba(0, 0, 0, 0.1) 0 10px 13px;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Padding */
+  @media (min-width: 768px) {
+    .learn-more-btn {
+      padding: 16px 48px;
+    }
+  }
+  
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 50px; /* Increased gap */
+    padding: 40px;
+}
+
+/* Card Container */
+.card {
+    position: relative;
+    width: 22%; /* Reduced width */
+    height: 340px; /* Reduced height */
+    perspective: 1200px; /* 3D effect */
+    transition: transform 0.3s ease-in-out;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Inner (For 3D Flip) */
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+/* Prevent Overlapping on Hover */
+.card:hover {
+    z-index: 2;
+}
+
+/* Flip Effect */
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front Side */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+/* Front Design */
+.card-front {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Image Section */
+.card-image {
+    width: 100%;
+    height: 50%; /* Half of the card */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Text Content */
+.card-content {
+    height: 50%; /* Bottom half */
+    background: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Title */
+.card-content h3 {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+/* Description */
+.card-content p {
+    font-size: 0.9em;
+    color: #444;
+    line-height: 1.4;
+}
+
+/* Background Images for Cards */
+.card:nth-child(1) .card-image { background-image: url('assets/homepage/Premium Vector _ Hand drawn e-waste illustration (1).jpeg'); }
+.card:nth-child(2) .card-image { background-image: url('assets/homepage/e-waste management company in Ahmedabad.jpeg'); }
+.card:nth-child(3) .card-image { background-image: url('assets/homepage/Recycle Symbols and Signs (Printable Logos and Icons) - Free Printables, Monograms, Design Tools, Patterns, & DIY Projects.jpeg'); }
+.card:nth-child(4) .card-image { background-image: url('assets/homepage/Data-destruction.jpg'); }
+
+/* Back Side */
+
+.card-back {
+    background: linear-gradient(315deg, #55efc4 0%, #000000 74%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+/* Learn More Button */
+.card-back a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+                rgba(44, 187, 99, 0.15) 0 1px 2px,
+                rgba(44, 187, 99, 0.15) 0 2px 4px,
+                rgba(44, 187, 99, 0.15) 0 4px 8px,
+                rgba(44, 187, 99, 0.15) 0 8px 16px,
+                rgba(44, 187, 99, 0.15) 0 16px 32px;
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+    border: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+/* Hover Effect */
+.card-back a:hover {
+    box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+                rgba(44, 187, 99, 0.25) 0 1px 2px,
+                rgba(44, 187, 99, 0.25) 0 2px 4px,
+                rgba(44, 187, 99, 0.25) 0 4px 8px,
+                rgba(44, 187, 99, 0.25) 0 8px 16px,
+                rgba(44, 187, 99, 0.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .features {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 100%;
+    }
+}
+
+.e-waste-importance {
+    background: linear-gradient(315deg, #01bdd2 0%, #b7e4f3 74%);
+    color: white;
+    padding: 60px 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.image {
+    flex: 1;
+    text-align: left;
+    max-width: 50%; /* Adjust width to make it bigger */
+    margin-right: 100px;
+}
+
+.image img {
+    width: 600px;
+    height: 500px;
+    border-radius: 15px;
+}
+
+
+.text {
+    flex: 1;
+    padding-left: 30px;
+}
+
+.text h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Accordion (Dropdown) Styles */
+.accordion {
+    margin-top: 20px;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 12px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease-in-out;
+}
+
+.accordion-header:hover {
+    background: #000000;
+    color: white;
+}
+
+.accordion-content {
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    color: white;
+    font-size: 1em;
+    border-left: 3px solid #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+}
+/* Footer Styles */
+.footer {
+    background: white; /* White Background */
+    color: black; /* Black Text */
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for Quick Links & Location */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc; /* Subtle Divider */
+}
+
+/* Footer Styles */
+.footer {
+    background: white; /* White Background */
+    color: black; /* Black Text */
+    padding: 20px 10px; /* Reduced Padding */
+    font-family: Arial, sans-serif;
+    font-size: 0.9em; /* Smaller Text */
+}
+
+/* Container for Quick Links & Location */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: auto;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc; /* Subtle Divider */
+}
+
+/* Footer Sections */
+.footer-section {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Section Titles */
+.footer-section h3 {
+    font-size: 1.1em; /* Smaller Font */
+    margin-bottom: 5px;
+    color: #1b5e20; /* Dark Green for Style */
+}
+
+/* Quick Links */
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-links ul li {
+    margin: 3px 0;
+}
+
+.quick-links ul li a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-size: 0.9em;
+}
+
+.quick-links ul li a:hover {
+    color: #1b5e20; /* Green Hover Effect */
+}
+
+/* Footer Bottom (Copyright & Design) */
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 0.8em; /* Even Smaller Text */
+    color: black;
+}
+.designer {
+    font-weight: bold;
+    color: #1b5e20;
+}

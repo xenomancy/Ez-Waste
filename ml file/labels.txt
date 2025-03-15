@@ -1,0 +1,10 @@
+0 Battery
+1 Keyboard
+2 Mobile
+3 Microphone
+4 Mouse
+5 PCB
+6 CD-DVD
+7 Printer
+8 Television
+9 Washing Machine

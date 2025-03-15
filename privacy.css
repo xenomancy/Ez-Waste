@@ -1,0 +1,90 @@
+/* General Page Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+}
+
+/* Policy Container */
+.policy-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Policy Content */
+.policy-content h2 {
+    color: #007bff;
+    font-size: 24px;
+}
+
+.policy-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Accordion Styles */
+.accordion-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-header {
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    text-align: left;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+}
+
+.accordion-header:hover {
+    background: #0056b3;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px;
+    background: #f1f1f1;
+    font-size: 15px;
+    color: #444;
+    border-left: 4px solid #007bff;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .policy-container {
+        width: 90%;
+        padding: 15px;
+    }
+}
