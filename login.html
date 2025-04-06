@@ -12,27 +12,30 @@
         <div class="login-box">
             <!-- Logo -->
             <div class="logo-container">
-                <img src="assets/logo/logo1.png" alt="Logo"> <!-- Replace with your logo image -->
+                <img src="assets/logo/logo1.png" alt="Logo"> <!-- Replace with your logo -->
             </div>
 
             <!-- Heading -->
             <h2>Welcome Back!</h2>
             <p>Login to access your account</p>
 
-            <!-- Email Input -->
-            <div class="input-group">
-                <input type="email" id="email" required>
-                <label for="email">Email Address</label>
-            </div>
+            <!-- Login Form -->
+            <form id="login-form">
+                <!-- Email Input -->
+                <div class="input-group">
+                    <input type="email" id="email" required>
+                    <label for="email">Email Address</label>
+                </div>
 
-            <!-- Password Input -->
-            <div class="input-group">
-                <input type="password" id="password" required>
-                <label for="password">Password</label>
-            </div>
+                <!-- Password Input -->
+                <div class="input-group">
+                    <input type="password" id="password" required>
+                    <label for="password">Password</label>
+                </div>
 
-            <!-- Login Button -->
-            <button class="btn">Login</button>
+                <!-- Login Button -->
+                <button type="submit" class="btn">Login</button>
+            </form>
 
             <!-- Footer Links -->
             <div class="links">
@@ -41,5 +44,33 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent page reload
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const result = await response.json();
+                alert(result.message);
+
+                if (response.ok) {
+                    window.location.href = 'dashboard.html'; // Redirect after successful login
+                }
+
+            } catch (error) {
+                console.error("Error during login:", error);
+                alert("Something went wrong. Please try again.");
+            }
+        });
+    </script>
 </body>
 </html>

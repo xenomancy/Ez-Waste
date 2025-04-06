@@ -10,22 +10,22 @@
 <body>
 
     <div class="signup-container">
-        <form class="signup-box">
+        <form class="signup-box" id="signup-form">
             <h2>Create Account</h2>
             <p>Sign up to get started</p>
 
             <div class="input-group">
-                <input type="text" required>
+                <input type="text" id="name" required>
                 <label>Full Name</label>
             </div>
 
             <div class="input-group">
-                <input type="email" required>
+                <input type="email" id="email" required>
                 <label>Email</label>
             </div>
 
             <div class="input-group">
-                <input type="password" required>
+                <input type="password" id="password" required>
                 <label>Password</label>
             </div>
 
@@ -35,6 +35,35 @@
             </div>
         </form>
     </div>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent page reload
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/auth/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                const result = await response.json();
+                alert(result.message);
+
+                if (response.ok) {
+                    window.location.href = 'login.html'; // Redirect after successful signup
+                }
+
+            } catch (error) {
+                console.error("Error during signup:", error);
+                alert("Something went wrong. Please try again.");
+            }
+        });
+    </script>
 
 </body>
 </html>

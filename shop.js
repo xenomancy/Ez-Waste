@@ -67,7 +67,6 @@ function removeFromCart(productName) {
     }
 }
 
-
 // Function to update button counter
 function updateButtonCounter(button, productName) {
     let existingItem = cart.find(item => item.name === productName);
@@ -94,6 +93,74 @@ function toggleCart() {
         cartSidebar.classList.remove("open");
     } else {
         cartSidebar.classList.add("open");
+    }
+}
+
+// Function to load products dynamically
+document.addEventListener('DOMContentLoaded', function () {
+    const productList = document.getElementById('product-list');
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+
+    // Filter out invalid products
+    const validProducts = products.filter(product => {
+        const isValid = product && product.id && product.name && product.category && product.image && product.price;
+        if (!isValid) {
+            console.log('Removing invalid product:', product); // Debugging log for invalid products
+        }
+        return isValid;
+    });
+
+    // Save cleaned-up product list back to localStorage
+    localStorage.setItem('products', JSON.stringify(validProducts));
+
+    // Check if any valid products are left
+    if (validProducts.length === 0) {
+        productList.innerHTML = '<p>No products available. Add some products on the Sell page!</p>';
+        return;
+    }
+
+
+    // Display valid products on the page
+validProducts.forEach(product => {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+
+    productCard.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <div class="product-info">
+            <h2>${product.name}</h2>
+            <p>Category: ${product.category}</p>
+            <p>Price: ₹${product.price}</p>
+            <button class="add-to-cart" onclick="addToCart('${product.name}', ${product.price}, '${product.image}', this)">Add to Cart</button>
+            <button id="view-details-btn" onclick="viewProduct(${product.id})">View Details</button>
+        </div>
+    `;
+
+
+
+    productList.appendChild(productCard);
+});
+});
+
+// Function to handle "View Details" button click
+function viewProduct(id) {
+    localStorage.setItem('currentProductId', id); // Save the product ID in localStorage
+    window.location.href = 'view.html'; // Redirect to the product details page
+}
+
+function logout() {
+    localStorage.removeItem('currentUser'); // Clear the logged-in user's data
+    alert('You have been logged out.');
+    window.location.href = 'login.html'; // Redirect to the login page
+}
+
+// Function to handle checkout
+function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty! Please add items before checking out.");
+    } else {
+        alert("Proceeding to checkout...");
+        window.location.href = 'checkout.html'; // Redirect to checkout page
     }
 }
 
